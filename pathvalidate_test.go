@@ -15,6 +15,7 @@ var tests = []struct {
 	{"hello\t", "hello_", pathvalidate.ErrInvalidChar},
 	{"hello\r", "hello_", pathvalidate.ErrInvalidChar},
 	{"hello\n", "hello_", pathvalidate.ErrInvalidChar},
+	{"hello\x00", "hello_", pathvalidate.ErrInvalidChar},
 	{"hello ", "hello", pathvalidate.ErrInvalidChar},
 	{"hello/world", "hello_world", pathvalidate.ErrInvalidChar},
 	{"nul", "nul_", pathvalidate.ErrReservedWord},
